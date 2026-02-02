@@ -31,4 +31,9 @@ public class UserServices {
     	User user = new User(obj.getId(),obj.getName(),obj.getEmail());
     	return user;
     }
+    
+    public void delete(String id) {
+    	findByld(id);
+        repo.deleteById(id);
+    }
 }
