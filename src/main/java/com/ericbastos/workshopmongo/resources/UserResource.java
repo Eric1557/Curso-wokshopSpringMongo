@@ -52,4 +52,13 @@ public class UserResource {
 	 return ResponseEntity.noContent().build();
  }
  
+ @RequestMapping(value="/{id}",method=RequestMethod.PUT)
+ public ResponseEntity<Void> update(@PathVariable String id,@RequestBody UserDTO objDTO){
+	 User obj = services.FromDTO(objDTO);
+	 obj.setId(id);
+	 obj = services.update(obj);
+	 URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj).toUri();
+	  return ResponseEntity.created(uri).build(); 
+ }
+ 
 }
