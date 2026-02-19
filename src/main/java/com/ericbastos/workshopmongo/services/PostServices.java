@@ -22,6 +22,6 @@ public class PostServices {
 	}
     
 	public List<Post> FindByTitle(String text){
-		return repo.FindByTitleContaining(text);
+		return repo.serchTitle(text);
 	}
 }
